@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{3BAFA777-7AD7-4749-956F-2932459601FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quiz", "Quiz", "{C565771A-FE26-4083-BE95-05FD9E0F7053}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Quiz\AppQuiz.Application\AppQuiz.Application.csproj = ..\..\Quiz\AppQuiz.Application\AppQuiz.Application.csproj
+		..\..\Quiz\AppQuiz.Domain\AppQuiz.Domain.csproj = ..\..\Quiz\AppQuiz.Domain\AppQuiz.Domain.csproj
+		..\..\Quiz\AppQuiz.Persistence\AppQuiz.Persistence.csproj = ..\..\Quiz\AppQuiz.Persistence\AppQuiz.Persistence.csproj
+		..\..\Quiz\AppQuiz.UnitTests\AppQuiz.UnitTests.csproj = ..\..\Quiz\AppQuiz.UnitTests\AppQuiz.UnitTests.csproj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Statistic", "Statistic", "{EC02FE7E-9E88-48B9-9877-78EF350AF7D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "..\..\IdentityServer\IdentityServer\IdentityServer.csproj", "{D75F7E3C-C569-4CF4-84E0-7C3B01333937}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppQuiz.Api", "..\..\Quiz\AppQuiz.Api\AppQuiz.Api.csproj", "{AAF671B7-4481-437C-8FDB-778FA3AC7028}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D75F7E3C-C569-4CF4-84E0-7C3B01333937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75F7E3C-C569-4CF4-84E0-7C3B01333937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75F7E3C-C569-4CF4-84E0-7C3B01333937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75F7E3C-C569-4CF4-84E0-7C3B01333937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF671B7-4481-437C-8FDB-778FA3AC7028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF671B7-4481-437C-8FDB-778FA3AC7028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF671B7-4481-437C-8FDB-778FA3AC7028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF671B7-4481-437C-8FDB-778FA3AC7028}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D75F7E3C-C569-4CF4-84E0-7C3B01333937} = {3BAFA777-7AD7-4749-956F-2932459601FA}
+		{AAF671B7-4481-437C-8FDB-778FA3AC7028} = {C565771A-FE26-4083-BE95-05FD9E0F7053}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E352AC0C-1BA8-474B-B921-60EF38CC99EF}
+	EndGlobalSection
+EndGlobal
