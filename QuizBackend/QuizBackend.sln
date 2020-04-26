@@ -6,12 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{3BAFA777-7AD7-4749-956F-2932459601FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quiz", "Quiz", "{C565771A-FE26-4083-BE95-05FD9E0F7053}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\Quiz\AppQuiz.Application\AppQuiz.Application.csproj = ..\..\Quiz\AppQuiz.Application\AppQuiz.Application.csproj
-		..\..\Quiz\AppQuiz.Domain\AppQuiz.Domain.csproj = ..\..\Quiz\AppQuiz.Domain\AppQuiz.Domain.csproj
-		..\..\Quiz\AppQuiz.Persistence\AppQuiz.Persistence.csproj = ..\..\Quiz\AppQuiz.Persistence\AppQuiz.Persistence.csproj
-		..\..\Quiz\AppQuiz.UnitTests\AppQuiz.UnitTests.csproj = ..\..\Quiz\AppQuiz.UnitTests\AppQuiz.UnitTests.csproj
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Statistic", "Statistic", "{EC02FE7E-9E88-48B9-9877-78EF350AF7D8}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,6 +24,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statistic.Persistence", "..\..\Statistic\Statistic.Persistence\Statistic.Persistence.csproj", "{274EA844-82B7-427A-BE90-1C99C891DB96}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statistic.UnitTests", "..\..\Statistic\Statistic.UnitTests\Statistic.UnitTests.csproj", "{3B33D39D-ECD8-4D3C-BFF1-2B1B8B7E9567}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppQuiz.Application", "..\..\Quiz\AppQuiz.Application\AppQuiz.Application.csproj", "{F6F543C4-443A-4EA0-9E4F-5A31882CC1DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppQuiz.Domain", "..\..\Quiz\AppQuiz.Domain\AppQuiz.Domain.csproj", "{CA352AE9-0CF2-409B-BCF3-B88A65796790}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppQuiz.Persistence", "..\..\Quiz\AppQuiz.Persistence\AppQuiz.Persistence.csproj", "{A1BC50FC-1CEB-436A-A9B1-B90639C9D6E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppQuiz.UnitTests", "..\..\Quiz\AppQuiz.UnitTests\AppQuiz.UnitTests.csproj", "{D4A6E4AB-8B92-4143-BD96-A2863C91B6A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,22 @@ Global
 		{3B33D39D-ECD8-4D3C-BFF1-2B1B8B7E9567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B33D39D-ECD8-4D3C-BFF1-2B1B8B7E9567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B33D39D-ECD8-4D3C-BFF1-2B1B8B7E9567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F543C4-443A-4EA0-9E4F-5A31882CC1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F543C4-443A-4EA0-9E4F-5A31882CC1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F543C4-443A-4EA0-9E4F-5A31882CC1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F543C4-443A-4EA0-9E4F-5A31882CC1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA352AE9-0CF2-409B-BCF3-B88A65796790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA352AE9-0CF2-409B-BCF3-B88A65796790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA352AE9-0CF2-409B-BCF3-B88A65796790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA352AE9-0CF2-409B-BCF3-B88A65796790}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1BC50FC-1CEB-436A-A9B1-B90639C9D6E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1BC50FC-1CEB-436A-A9B1-B90639C9D6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1BC50FC-1CEB-436A-A9B1-B90639C9D6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1BC50FC-1CEB-436A-A9B1-B90639C9D6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4A6E4AB-8B92-4143-BD96-A2863C91B6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4A6E4AB-8B92-4143-BD96-A2863C91B6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4A6E4AB-8B92-4143-BD96-A2863C91B6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4A6E4AB-8B92-4143-BD96-A2863C91B6A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +90,10 @@ Global
 		{1A545FFE-0056-4DB5-A406-32EAAD6FCBEC} = {EC02FE7E-9E88-48B9-9877-78EF350AF7D8}
 		{274EA844-82B7-427A-BE90-1C99C891DB96} = {EC02FE7E-9E88-48B9-9877-78EF350AF7D8}
 		{3B33D39D-ECD8-4D3C-BFF1-2B1B8B7E9567} = {EC02FE7E-9E88-48B9-9877-78EF350AF7D8}
+		{F6F543C4-443A-4EA0-9E4F-5A31882CC1DD} = {C565771A-FE26-4083-BE95-05FD9E0F7053}
+		{CA352AE9-0CF2-409B-BCF3-B88A65796790} = {C565771A-FE26-4083-BE95-05FD9E0F7053}
+		{A1BC50FC-1CEB-436A-A9B1-B90639C9D6E1} = {C565771A-FE26-4083-BE95-05FD9E0F7053}
+		{D4A6E4AB-8B92-4143-BD96-A2863C91B6A9} = {C565771A-FE26-4083-BE95-05FD9E0F7053}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E352AC0C-1BA8-474B-B921-60EF38CC99EF}
