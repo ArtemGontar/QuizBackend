@@ -14,7 +14,7 @@ services:
             - "6008:443"
     
     appQuiz:
-        image: appquiz
+        image: quizapi
         ports:
             - "6003:80"
             - "6004:443"
