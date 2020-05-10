@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monitoring", "..\..\Monitor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statistic.Domain", "..\..\Statistic\Statistic.Domain\Statistic.Domain.csproj", "{F1187FA7-4860-44DE-B070-1FDA4C0DD5EF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.UnitTests", "..\..\IdentityServer\IdentityServer.UnitTests\IdentityServer.UnitTests.csproj", "{D717DF77-7C2B-46D5-A4AD-589839412089}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{F1187FA7-4860-44DE-B070-1FDA4C0DD5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1187FA7-4860-44DE-B070-1FDA4C0DD5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1187FA7-4860-44DE-B070-1FDA4C0DD5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D717DF77-7C2B-46D5-A4AD-589839412089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D717DF77-7C2B-46D5-A4AD-589839412089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D717DF77-7C2B-46D5-A4AD-589839412089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D717DF77-7C2B-46D5-A4AD-589839412089}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +186,7 @@ Global
 		{7607707B-C6A5-4403-836E-7ACC54F2405C} = {D59EFE00-01F7-4329-A0EC-970D80F3D0BC}
 		{B1329353-08F3-4B8C-9270-C802EAAE6A1F} = {1E354EB9-E45B-45EC-BD87-66E21EC7DDEE}
 		{F1187FA7-4860-44DE-B070-1FDA4C0DD5EF} = {EC02FE7E-9E88-48B9-9877-78EF350AF7D8}
+		{D717DF77-7C2B-46D5-A4AD-589839412089} = {3BAFA777-7AD7-4749-956F-2932459601FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E352AC0C-1BA8-474B-B921-60EF38CC99EF}
