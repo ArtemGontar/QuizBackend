@@ -8,25 +8,25 @@ services:
             - "6002:443"
     
     statistic:
-        image: statisticapi
+        image: statistic.api
         ports:
             - "6007:80"
             - "6008:443"
     
     appQuiz:
-        image: quizapi
+        image: quiz.api
         ports:
             - "6003:80"
             - "6004:443"
         
     user:
-        image: userapi
+        image: user.api
         ports:
             - "6005:80"
             - "6006:443"
         
     monitoring:
-        image: monitoringapi
+        image: monitoring.api
         ports:
             - "6009:80"
             - "6010:443"
