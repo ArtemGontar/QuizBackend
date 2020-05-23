@@ -1,78 +1,59 @@
 version: '3.5'
 
 services:
-    identityServer:
-        image: identityserver
-        ports:
-            - "6001:80"
-            - "6002:443"
-    
-    statistic:
-        image: statistic.api
-        ports:
-            - "6007:80"
-            - "6008:443"
-    
-    appQuiz:
-        image: quiz.api
-        ports:
-            - "6003:80"
-            - "6004:443"
-        
-    user:
-        image: user.api
-        ports:
-            - "6005:80"
-            - "6006:443"
-        
-    monitoring:
-        image: monitoring.api
-        ports:
-            - "6009:80"
-            - "6010:443"
-    
-    # rabbitmq:
-        # image: rabbitmq:3-management-alpine
-        # container_name: rabbitmq
-        # volumes:
-            # - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
-            # - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
-            # - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
-        # # environment:
-            # # RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
-            # # RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
-            # # RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    # identityServer:
+        # image: identityserver
         # ports:
-            # - 5672:5672
-            # - 15672:15672
+            # - "6001:80"
+            # - "6002:443"
     
-    # mysql:
-      # image: mysql:5.7
-      # restart: always
-      # environment:
-        # MYSQL_DATABASE: 'db'
-        # # So you don't have to use root, but you can if you like
-        # MYSQL_USER: 'user'
-        # # You can use whatever password you like
-        # MYSQL_PASSWORD: 'password'
-        # # Password for root access
-        # MYSQL_ROOT_PASSWORD: 'password'
-      # ports:
-        # # <Port exposed> : < MySQL Port running inside container>
-        # - '3306:3306'
-      # expose:
-        # # Opens port 3306 on the container
-        # - '3306'
-        # # Where our data will be persisted
-      # # volumes:
-      # #   - my-db:/var/lib/mysql
+    # statistic:
+        # image: statistic.api
+        # ports:
+            # - "6007:80"
+            # - "6008:443"
+    
+    # appQuiz:
+        # image: quiz.api
+        # ports:
+            # - "6003:80"
+            # - "6004:443"
+        
+    # user:
+        # image: user.api
+        # ports:
+            # - "6005:80"
+            # - "6006:443"
+        
+    # monitoring:
+        # image: monitoring.api
+        # ports:
+            # - "6009:80"
+            # - "6010:443"
+    
+    rabbitmq:
+        image: "rabbitmq:3-management"
+        hostname: "rabbit"
+        ports:
+          - "15672:15672"
+          - "5672:5672"
+        labels:
+          NAME: "rabbitmq"
+        volumes:
+          - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+    
+    mysql:
+        image: mysql:5.7
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: new_base
+        ports:
+          - 3308:3306
       
-    # mongodb_container:
-      # image: mongo:latest
-      # environment:
-        # MONGO_INITDB_ROOT_USERNAME: root
-        # MONGO_INITDB_ROOT_PASSWORD: rootpassword
-      # ports:
-        # - 27017:27017
-      # # volumes:
-      # #   - mongodb_data_container:/data/db
+    mongodb:
+        image: mongo
+        restart: always
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: example
