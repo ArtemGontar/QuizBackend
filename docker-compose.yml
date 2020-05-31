@@ -1,59 +1,90 @@
 version: '3.5'
 
 services:
-    # identityServer:
-        # image: identityserver
-        # ports:
-            # - "6001:80"
-            # - "6002:443"
+    identityServer:
+        build:
+            context: .
+            network: host
+        image: identityserver
+        restart: always
+        ports:
+            - "6001:80"
+            - "6002:443"
+        depends_on:
+            - mysql
     
-    # statistic:
-        # image: statistic.api
-        # ports:
-            # - "6007:80"
-            # - "6008:443"
+    statistic:
+        build:
+            context: .
+            network: host
+        image: statistic.api
+        restart: always
+        ports:
+            - "6007:80"
+            - "6008:443"
+        depends_on:
+            - mongodb
+            - rabbitmq
     
-    # appQuiz:
-        # image: quiz.api
-        # ports:
-            # - "6003:80"
-            # - "6004:443"
-        
-    # user:
-        # image: user.api
-        # ports:
-            # - "6005:80"
-            # - "6006:443"
-        
-    # monitoring:
-        # image: monitoring.api
-        # ports:
-            # - "6009:80"
-            # - "6010:443"
+    appQuiz:
+        build:
+            context: .
+            network: host
+        image: quiz.api
+        ports:
+            - "6003:80"
+            - "6004:443"
+        depends_on:
+            - mongodb
+            - rabbitmq
+      
+    user:
+        build:
+            context: .
+            network: host
+        image: user.api
+        restart: always
+        ports:
+           - "6005:80"
+           - "6006:443"
+        depends_on:
+            - mysql
+      
+    monitoring:
+        build:
+            context: .
+            network: host
+        image: monitoring.api
+        restart: always
+        ports:
+            - "6009:80"
+            - "6010:443"
     
     rabbitmq:
         image: "rabbitmq:3-management"
         hostname: "rabbit"
         ports:
-          - "15672:15672"
-          - "5672:5672"
+            - "15672:15672"
+            - "5672:5672"
         labels:
-          NAME: "rabbitmq"
+            NAME: "rabbitmq"
         volumes:
-          - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+            - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
     
     mysql:
         image: mysql:5.7
         restart: always
         environment:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: new_base
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: new_base
         ports:
-          - 3308:3306
-      
+            - 3306:3306
+    
     mongodb:
         image: mongo
         restart: always
+        deploy:
+            replicas: 2
         environment:
-          MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: example
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: example

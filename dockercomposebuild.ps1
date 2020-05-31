@@ -1,4 +1,6 @@
+
 cd ..
+
 docker build -t identityserver ./IdentityServer
 docker build -t monitoring.api ./Monitoring
 docker build -t quiz.api ./Quiz
