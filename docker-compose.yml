@@ -1,61 +1,69 @@
 version: '3.5'
 
 services:
-    identityServer:
+    spaapp:
         build:
-            context: .
-            network: host
+            context: ../quiz-frontend
+        image: spaapp
+        ports:
+          - "4200:80"
+        depends_on:
+            - identityServer
+            - statistic
+            - appQuiz
+            - user
+    identityServer:
+        # environment:
+            # - ConnectionString=Server=localhost;Port=3306;Database=quiz-identity;User=root;Pwd=root;CharSet=utf8;SslMode=none;
+        build:
+            context: ../IdentityServer
         image: identityserver
         ports:
             - "6001:80"
             - "6002:443"
         depends_on:
             - mysql
-    
+        
     statistic:
         build:
-            context: .
-            network: host
+          context: ../Statistic
         image: statistic.api
         ports:
-            - "6007:80"
-            - "6008:443"
+          - "6007:80"
+          - "6008:443"
         depends_on:
-            - mongodb
-            - rabbitmq
+          - mongodb
+          - rabbitmq
     
     appQuiz:
         build:
-            context: .
-            network: host
+          context: ../Quiz
         image: quiz.api
         ports:
-            - "6003:80"
-            - "6004:443"
+          - "6003:80"
+          - "6004:443"
         depends_on:
-            - mongodb
-            - rabbitmq
-      
+          - mongodb
+          - rabbitmq
+    
     user:
         build:
-            context: .
-            network: host
+          context: ../User
         image: user.api
         ports:
-           - "6005:80"
-           - "6006:443"
+          - "6005:80"
+          - "6006:443"
         depends_on:
-            - mysql
-      
+          - mysql
+    
     monitoring:
         build:
-            context: .
-            network: host
+          context: ../Monitoring
         image: monitoring.api
         ports:
-            - "6009:80"
-            - "6010:443"
-    
+          - "6009:80"
+          - "6010:443"
+      
     rabbitmq:
         image: "rabbitmq:3-management"
         hostname: "rabbit"
@@ -70,15 +78,14 @@ services:
     mysql:
         image: mysql:5.7
         environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: new_base
+            - MYSQL_ROOT_PASSWORD=root
         ports:
             - 3306:3306
     
     mongodb:
         image: mongo
-        deploy:
-            replicas: 2
+        # deploy:
+            # replicas: 2
         environment:
-            MONGO_INITDB_ROOT_USERNAME: root
-            MONGO_INITDB_ROOT_PASSWORD: example
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=example
