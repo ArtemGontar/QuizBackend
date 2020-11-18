@@ -1,0 +1,91 @@
+version: '3.5'
+
+services:
+    spaapp:
+        build:
+            context: ../quiz-frontend
+        image: spaapp
+        ports:
+          - "4200:80"
+        depends_on:
+            - identityServer
+            - statistic
+            - appQuiz
+            - user
+    identityServer:
+        # environment:
+            # - ConnectionString=Server=localhost;Port=3306;Database=quiz-identity;User=root;Pwd=root;CharSet=utf8;SslMode=none;
+        build:
+            context: ../IdentityServer
+        image: identityserver
+        ports:
+            - "6001:80"
+            - "6002:443"
+        depends_on:
+            - mysql
+        
+    statistic:
+        build:
+          context: ../Statistic
+        image: statistic.api
+        ports:
+          - "6007:80"
+          - "6008:443"
+        depends_on:
+          - mongodb
+          - rabbitmq
+    
+    appQuiz:
+        build:
+          context: ../Quiz
+        image: quiz.api
+        ports:
+          - "6003:80"
+          - "6004:443"
+        depends_on:
+          - mongodb
+          - rabbitmq
+    
+    user:
+        build:
+          context: ../User
+        image: user.api
+        ports:
+          - "6005:80"
+          - "6006:443"
+        depends_on:
+          - mysql
+    
+    monitoring:
+        build:
+          context: ../Monitoring
+        image: monitoring.api
+        ports:
+          - "6009:80"
+          - "6010:443"
+      
+    rabbitmq:
+        image: "rabbitmq:3-management"
+        hostname: "rabbit"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        labels:
+            NAME: "rabbitmq"
+        volumes:
+            - ./rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+    
+    mysql:
+        image: mysql:5.7
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - 3306:3306
+    
+    mongodb:
+        image: mongo
+        # deploy:
+            # replicas: 2
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=example
